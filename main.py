@@ -7,8 +7,12 @@ def main():
 
     candidates = range(side_length)
     for _ in range(bomb_count):
-        a, b = random.sample(candidates, 2)
-        field[a][b] = {'type': 'Bomb', 'visible': False}
+        def roulette():
+            r, c = random.sample(candidates, 2)
+            if field[r][c]['type'] == 'Bomb':
+                roulette()
+            field[r][c] = {'type': 'Bomb', 'visible': False}
+        roulette()
 
     for i in range(side_length):
         for j in range(side_length):
