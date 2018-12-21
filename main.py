@@ -27,9 +27,9 @@ def main():
     def open_cell(r, c):
         field[r][c]['visible'] = True
 
-    start_r = 8
-    start_c = 4
-    open_cell(start_r, start_c)
+    player_r = 8
+    player_c = 4
+    open_cell(player_r, player_c)
 
     def draw_field():
         for index, rows in enumerate(field):
@@ -39,26 +39,26 @@ def main():
                 return str(c['count']) if c['type'] == 'Safe' else 'B'
 
             texts = list(map(draw_cell, rows))
-            if index == start_r:
-                texts[start_c] = '\033[32m' + texts[start_c] + '\033[0m'
+            if index == player_r:
+                texts[player_c] = '\033[32m' + texts[player_c] + '\033[0m'
             print(' '.join(texts))
 
     while True:
         draw_field()
         inp = input('hjklで入力して。hで左jで下kで上lで右に動くよ。exitで終わります').strip()
         if inp == 'h':
-            start_c -= 1
+            player_c -= 1
         elif inp == 'j':
-            start_r += 1
+            player_r += 1
         elif inp == 'k':
-            start_r -= 1
+            player_r -= 1
         elif inp == 'l':
-            start_c += 1
+            player_c += 1
         elif inp == 'exit':
             break
         else:
             print('ちゃんと入力しろ')
 
-        open_cell(start_r, start_c)
+        open_cell(player_r, player_c)
 
 main()
