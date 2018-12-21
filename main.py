@@ -23,16 +23,35 @@ def main():
     def open_cell(r, c):
         field[r][c]['visible'] = True
 
-    open_cell(8, 4)
-    open_cell(8, 5)
-    open_cell(7, 4)
+    start_r = 8
+    start_c = 4
+    open_cell(start_r, start_c)
 
-    for rows in field:
-        def write_cell(c):
-            if not c['visible']:
-                return ' '
-            return str(c['count']) if c['type'] == 'Safe' else 'B'
+    def draw_field():
+        for rows in field:
+            def draw_cell(c):
+                if not c['visible']:
+                    return ' '
+                return str(c['count']) if c['type'] == 'Safe' else 'B'
 
-        print(' '.join(map(write_cell, rows)))
+            print(' '.join(map(draw_cell, rows)))
+
+    while True:
+        draw_field()
+        inp = input('hjklで入力して。hで左jで下kで上lで右に動くよ。exitで終わります').strip()
+        if inp == 'h':
+            start_c -= 1
+        elif inp == 'j':
+            start_r += 1
+        elif inp == 'k':
+            start_r -= 1
+        elif inp == 'l':
+            start_c += 1
+        elif inp == 'exit':
+            break
+        else:
+            print('ちゃんと入力しろ')
+
+        open_cell(start_r, start_c)
 
 main()
