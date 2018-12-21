@@ -12,10 +12,13 @@ def main():
 
     for i in range(side_length):
         for j in range(side_length):
-            if field[i][j]['type'] == 'Bomb':
-                for a, b in [(i - 1, j - 1), (i, j - 1), (i + 1, j - 1), (i - 1, j), (i + 1, j), (i - 1, j + 1), (i, j + 1), (i + 1, j + 1)]:
-                    if a in range(side_length) and b in range(side_length) and field[a][b]['type'] == 'Safe':
-                        field[a][b]['count'] += 1
+            if not field[i][j]['type'] == 'Bomb':
+                continue
+
+            surroundings = [(i - 1, j - 1), (i, j - 1), (i + 1, j - 1), (i - 1, j), (i + 1, j), (i - 1, j + 1), (i, j + 1), (i + 1, j + 1)]
+            for a, b in surroundings:
+                if a in range(side_length) and b in range(side_length) and field[a][b]['type'] == 'Safe':
+                    field[a][b]['count'] += 1
 
     for rows in field:
         print(' '.join([str(c['count']) if c['type'] == 'Safe' else 'B' for c in rows]))
