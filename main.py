@@ -28,13 +28,16 @@ def main():
     open_cell(start_r, start_c)
 
     def draw_field():
-        for rows in field:
+        for index, rows in enumerate(field):
             def draw_cell(c):
                 if not c['visible']:
                     return ' '
                 return str(c['count']) if c['type'] == 'Safe' else 'B'
 
-            print(' '.join(map(draw_cell, rows)))
+            texts = list(map(draw_cell, rows))
+            if index == start_r:
+                texts[start_c] = '\033[32m' + texts[start_c] + '\033[0m'
+            print(' '.join(texts))
 
     while True:
         draw_field()
