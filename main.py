@@ -1,50 +1,21 @@
-import random
+from field_generator import FieldGenerator
+
 
 def main():
-    side_length = 9
-    bomb_count = 10
-    field = [[{'type': 'Safe', 'count': 0, 'visible': False} for _ in range(side_length)] for _ in range(side_length)]
+    width = 9
+    height = 9
+    bomb_amount = 10
 
-    candidates = range(side_length)
-    for _ in range(bomb_count):
-        def roulette():
-            r, c = random.sample(candidates, 2)
-            if field[r][c]['type'] == 'Bomb':
-                roulette()
-            field[r][c] = {'type': 'Bomb', 'visible': False}
-        roulette()
-
-    for i in range(side_length):
-        for j in range(side_length):
-            if not field[i][j]['type'] == 'Bomb':
-                continue
-
-            surroundings = [(i - 1, j - 1), (i, j - 1), (i + 1, j - 1), (i - 1, j), (i + 1, j), (i - 1, j + 1), (i, j + 1), (i + 1, j + 1)]
-            for r, c in surroundings:
-                if r in range(side_length) and c in range(side_length) and field[r][c]['type'] == 'Safe':
-                    field[r][c]['count'] += 1
-
-    def open_cell(r, c):
-        field[r][c]['visible'] = True
+    field = FieldGenerator.generate(width, height, bomb_amount)
 
     player_r = 8
     player_c = 4
-    open_cell(player_r, player_c)
-
-    def draw_field():
-        for index, rows in enumerate(field):
-            def draw_cell(c):
-                if not c['visible']:
-                    return ' '
-                return str(c['count']) if c['type'] == 'Safe' else 'B'
-
-            texts = list(map(draw_cell, rows))
-            if index == player_r:
-                texts[player_c] = '\033[32m' + texts[player_c] + '\033[0m'
-            print(' '.join(texts))
+    field.open_cell(player_r, player_c)
 
     while True:
-        draw_field()
+        for text in field.get_texts():
+            print(' '.join(text))
+
         inp = input('hjklで入力して。hで左jで下kで上lで右に動くよ。exitで終わります').strip()
         if inp == 'h':
             player_c -= 1
@@ -59,6 +30,6 @@ def main():
         else:
             print('ちゃんと入力しろ')
 
-        open_cell(player_r, player_c)
+        field.open_cell(player_r, player_c)
 
 main()
