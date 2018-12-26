@@ -6,12 +6,15 @@ from game import Game
 def main():
     game = Game.start()
     message = None
+    is_player_visible = True
 
     while True:
         x = 0
         y = 0
         toggle_mark = False
-        for text in game.field.get_texts():
+        for index, text in enumerate(game.field.get_texts()):
+            if is_player_visible is True and index == game.player.y:
+                text[game.player.x] = 'P'
             print(' '.join(text))
         print('stage:', str(Game.stage))
         print('steps:', str(game.player.steps))
@@ -32,6 +35,8 @@ def main():
             Q W E
             A   D
             Z X C
+          show/hide player:
+            s or S
         Type `exit` to exit.
         '''))
         if inp == 'q':
@@ -82,6 +87,9 @@ def main():
             x += 1
             y += 1
             toggle_mark = True
+        elif inp == 's' or inp == 'S':
+            is_player_visible = not is_player_visible
+            continue
         elif inp == 'exit':
             break
         else:
