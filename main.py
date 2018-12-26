@@ -45,7 +45,7 @@ def main():
         elif inp == 'exit':
             break
         else:
-            print('ちゃんと入力しろ')
+            print('Invalid input')
 
         field.open_cell(player_point.x, player_point.y)
 
