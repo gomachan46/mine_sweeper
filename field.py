@@ -30,8 +30,11 @@ class Field:
                 if not isinstance(cells[y][x], Bomb):
                     continue
 
-                surroundings = [(x - 1, y - 1), (x, y - 1), (x + 1, y - 1), (x - 1, y), (x + 1, y),
-                                (x - 1, y + 1), (x, y + 1), (x + 1, y + 1)]
+                surroundings = [
+                    (x - 1, y - 1), (x, y - 1), (x + 1, y - 1),
+                    (x - 1, y),                 (x + 1, y),
+                    (x - 1, y + 1), (x, y + 1), (x + 1, y + 1)
+                ]
                 for s_x, s_y in surroundings:
                     if s_x in range(self.__width) and s_y in range(self.__height) and isinstance(cells[s_y][s_x], Safe):
                         cells[s_y][s_x].count_up()
