@@ -21,6 +21,7 @@ def main():
 
         if message is not None:
             print(message)
+            message = None
 
         if game.player.is_dead():
             break
