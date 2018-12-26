@@ -1,23 +1,19 @@
 import textwrap
 
-from field_generator import FieldGenerator
 from game import Game
-from player import Player
 
 
 def main():
-    width = 9
-    height = 9
-    bomb_amount = 10
-
-    field = FieldGenerator.generate(width, height, bomb_amount)
-    player = Player(field.start)
-    game = Game(field, player)
+    game = Game.start()
     message = None
 
     while True:
-        for text in field.get_texts():
+        x = 0
+        y = 0
+        for text in game.field.get_texts():
             print(' '.join(text))
+        print('stage:', str(Game.stage))
+        print('steps:', str(game.player.steps))
 
         if message is not None:
             print(message)
@@ -33,32 +29,32 @@ def main():
         Type `exit` to exit.
         '''))
         if inp == 'q':
-            game.player.x -= 1
-            game.player.y -= 1
+            x -= 1
+            y -= 1
         elif inp == 'a':
-            game.player.x -= 1
+            x -= 1
         elif inp == 'z':
-            game.player.x -= 1
-            game.player.y += 1
+            x -= 1
+            y += 1
         elif inp == 'w':
-            game.player.y -= 1
+            y -= 1
         elif inp == 'x':
-            game.player.y += 1
+            y += 1
         elif inp == 'e':
-            game.player.x += 1
-            game.player.y -= 1
+            x += 1
+            y -= 1
         elif inp == 'd':
-            game.player.x += 1
+            x += 1
         elif inp == 'c':
-            game.player.x += 1
-            game.player.y += 1
+            x += 1
+            y += 1
         elif inp == 'exit':
             break
         else:
             message = 'Invalid input'
             continue
 
-        message = game.judge()
+        message = game.next(x, y)
 
 
 main()

@@ -7,7 +7,7 @@ from wall import Wall
 
 
 class Field:
-    def __init__(self, width, height, cells):
+    def __init__(self, width, height, cells, bomb_amount):
         self.__goal = Point(((width - 1) // 2) + 1, 0)  # あとで追加される壁ブロックを見越して設定しておく
         self.__start = Point(((width - 1) // 2) + 1, height + 1)  # あとで追加される壁ブロックを見越して設定しておく
         # スタート行とゴール行の構築
@@ -16,16 +16,19 @@ class Field:
         goal_line.insert(self.__goal.x - 1, Goal())
         start_line.insert(self.__start.x - 1, Start())
         cells = [cells[i:i + width] for i in range(0, width * height, width)]
-        # 初動3マス絶対安全エリアの確保
-        cells[-1][self.__start.x - 1] = Safe()
-        cells[-1][self.__start.x] = Safe()
-        cells[-1][self.__start.x + 1] = Safe()
         cells.insert(0, goal_line)
         cells.append(start_line)
         # 両側の壁の構築
         for index, _ in enumerate(cells):
             cells[index].insert(0, Wall())
             cells[index].append(Wall())
+        # スタート前3マス・ゴール前3マスの安全確保
+        cells[1][self.__start.x - 1] = Safe()
+        cells[1][self.__start.x] = Safe()
+        cells[1][self.__start.x + 1] = Safe()
+        cells[-2][self.__start.x - 1] = Safe()
+        cells[-2][self.__start.x] = Safe()
+        cells[-2][self.__start.x + 1] = Safe()
         self.__width = len(cells[0])
         self.__height = len(cells)
 

@@ -1,12 +1,16 @@
+from point import Point
+
+
 class Player:
     STATUS_HEALTHY = 'healthy'
     STATUS_DEAD = 'dead'
 
-    def __init__(self, point):
+    def __init__(self, point=Point(0, 0)):
         self.__point = point
         self.__x = self.__point.x
         self.__y = self.__point.y
         self.__status = self.STATUS_HEALTHY
+        self.__steps = 0
 
     @property
     def x(self):
@@ -33,6 +37,14 @@ class Player:
         self.__point = value
         self.__x = self.__point.x
         self.__y = self.__point.y
+
+    @property
+    def steps(self):
+        return self.__steps
+
+    @steps.setter
+    def steps(self, value):
+        self.__steps = value
 
     def pass_away(self):
         self.__status = self.STATUS_DEAD
