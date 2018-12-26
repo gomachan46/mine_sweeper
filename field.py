@@ -46,6 +46,7 @@ class Field:
 
     def open_cell(self, x, y):
         self.__cells[y][x].open()
+        return self.__cells[y][x]
 
     def get_texts(self):
         return [[c.get_text() for c in row] for row in self.__cells]

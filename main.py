@@ -1,6 +1,8 @@
 import textwrap
 
 from field_generator import FieldGenerator
+from game import Game
+from player import Player
 
 
 def main():
@@ -9,11 +11,19 @@ def main():
     bomb_amount = 10
 
     field = FieldGenerator.generate(width, height, bomb_amount)
-    player_point = field.start
+    player = Player(field.start)
+    game = Game(field, player)
+    message = None
 
     while True:
         for text in field.get_texts():
             print(' '.join(text))
+
+        if message is not None:
+            print(message)
+
+        if game.player.is_dead():
+            break
 
         inp = input(textwrap.dedent('''
         Available keys:
@@ -23,30 +33,32 @@ def main():
         Type `exit` to exit.
         '''))
         if inp == 'q':
-            player_point.x -= 1
-            player_point.y -= 1
+            game.player.x -= 1
+            game.player.y -= 1
         elif inp == 'a':
-            player_point.x -= 1
+            game.player.x -= 1
         elif inp == 'z':
-            player_point.x -= 1
-            player_point.y += 1
+            game.player.x -= 1
+            game.player.y += 1
         elif inp == 'w':
-            player_point.y -= 1
+            game.player.y -= 1
         elif inp == 'x':
-            player_point.y += 1
+            game.player.y += 1
         elif inp == 'e':
-            player_point.x += 1
-            player_point.y -= 1
+            game.player.x += 1
+            game.player.y -= 1
         elif inp == 'd':
-            player_point.x += 1
+            game.player.x += 1
         elif inp == 'c':
-            player_point.x += 1
-            player_point.y += 1
+            game.player.x += 1
+            game.player.y += 1
         elif inp == 'exit':
             break
         else:
-            print('Invalid input')
+            message = 'Invalid input'
+            continue
 
-        field.open_cell(player_point.x, player_point.y)
+        message = game.judge()
+
 
 main()
