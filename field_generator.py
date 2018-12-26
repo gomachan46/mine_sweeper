@@ -4,6 +4,7 @@ from bomb import Bomb
 from field import Field
 from safe import Safe
 
+
 class FieldGenerator:
     @classmethod
     def generate(cls, width, height, bomb_amount):
