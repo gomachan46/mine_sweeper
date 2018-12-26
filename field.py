@@ -16,6 +16,10 @@ class Field:
         goal_line.insert(self.__goal.x - 1, Goal())
         start_line.insert(self.__start.x - 1, Start())
         cells = [cells[i:i + width] for i in range(0, width * height, width)]
+        # 初動3マス絶対安全エリアの確保
+        cells[-1][self.__start.x - 1] = Safe()
+        cells[-1][self.__start.x] = Safe()
+        cells[-1][self.__start.x + 1] = Safe()
         cells.insert(0, goal_line)
         cells.append(start_line)
         # 両側の壁の構築

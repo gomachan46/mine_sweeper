@@ -21,7 +21,7 @@ def main():
         a s d
         z x c
         Type `exit` to exit.
-        ''').strip())
+        '''))
         if inp == 'q':
             player_point.x -= 1
             player_point.y -= 1
