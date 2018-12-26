@@ -1,3 +1,5 @@
+import textwrap
+
 from field_generator import FieldGenerator
 
 
@@ -13,7 +15,13 @@ def main():
         for text in field.get_texts():
             print(' '.join(text))
 
-        inp = input('hjklで入力して。hで左jで下kで上lで右に動くよ。exitで終わります').strip()
+        inp = input(textwrap.dedent('''
+        Available keys:
+        q w e
+        a s d
+        z x c
+        Type `exit` to exit.
+        ''').strip())
         if inp == 'q':
             player_point.x -= 1
             player_point.y -= 1

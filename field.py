@@ -8,8 +8,6 @@ from wall import Wall
 
 class Field:
     def __init__(self, width, height, cells):
-        self.__width = width
-        self.__height = height
         self.__goal = Point(((width - 1) // 2) + 1, 0)  # あとで追加される壁ブロックを見越して設定しておく
         self.__start = Point(((width - 1) // 2) + 1, height + 1)  # あとで追加される壁ブロックを見越して設定しておく
         # スタート行とゴール行の構築
@@ -24,24 +22,26 @@ class Field:
         for index, _ in enumerate(cells):
             cells[index].insert(0, Wall())
             cells[index].append(Wall())
+        self.__width = len(cells[0])
+        self.__height = len(cells)
 
-        for y in range(height):
-            for x in range(width):
+        for y in range(self.__height):
+            for x in range(self.__width):
                 if not isinstance(cells[y][x], Bomb):
                     continue
 
                 surroundings = [(x - 1, y - 1), (x, y - 1), (x + 1, y - 1), (x - 1, y), (x + 1, y),
                                 (x - 1, y + 1), (x, y + 1), (x + 1, y + 1)]
-                for x, y in surroundings:
-                    if x in range(width) and y in range(height) and isinstance(cells[y][x], Safe):
-                        cells[y][x].count_up()
+                for s_x, s_y in surroundings:
+                    if s_x in range(self.__width) and s_y in range(self.__height) and isinstance(cells[s_y][s_x], Safe):
+                        cells[s_y][s_x].count_up()
         self.__cells = cells
 
     def open_cell(self, x, y):
         self.__cells[y][x].open()
 
     def get_texts(self):
-        return [[r.get_text() for r in rows] for rows in self.__cells]
+        return [[c.get_text() for c in row] for row in self.__cells]
 
     @property
     def goal(self):

@@ -1,5 +1,5 @@
 class Cell:
-    def __init__(self, text, visible=False):
+    def __init__(self, text, visible):
         self.text = text
         self.visible = visible
 
