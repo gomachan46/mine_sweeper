@@ -14,14 +14,26 @@ def main():
             print(' '.join(text))
 
         inp = input('hjklで入力して。hで左jで下kで上lで右に動くよ。exitで終わります').strip()
-        if inp == 'h':
+        if inp == 'q':
             player_point.x -= 1
-        elif inp == 'j':
-            player_point.y += 1
-        elif inp == 'k':
             player_point.y -= 1
-        elif inp == 'l':
+        elif inp == 'a':
+            player_point.x -= 1
+        elif inp == 'z':
+            player_point.x -= 1
+            player_point.y += 1
+        elif inp == 'w':
+            player_point.y -= 1
+        elif inp == 'x':
+            player_point.y += 1
+        elif inp == 'e':
             player_point.x += 1
+            player_point.y -= 1
+        elif inp == 'd':
+            player_point.x += 1
+        elif inp == 'c':
+            player_point.x += 1
+            player_point.y += 1
         elif inp == 'exit':
             break
         else:
