@@ -47,6 +47,9 @@ class Field:
                         cells[s_y][s_x].count_up()
         self.__cells = cells
 
+    def get_cell(self, x, y):
+        return self.__cells[y][x]
+
     def open_cell(self, x, y):
         return self.__cells[y][x].open()
 

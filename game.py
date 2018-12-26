@@ -65,3 +65,6 @@ class Game:
             return 'There is a goal! Next stage!'
 
         return None
+
+    def get_foot_cell(self):
+        return self.__field.get_cell(self.__player.x, self.__player.y)

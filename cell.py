@@ -21,3 +21,6 @@ class Cell:
         if self.visible is False:
             return ' '
         return self.text
+
+    def __str__(self):
+        return self.get_text()
