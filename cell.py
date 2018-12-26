@@ -2,9 +2,22 @@ class Cell:
     def __init__(self, text, visible):
         self.text = text
         self.visible = visible
+        self.mark = False
+
+    def toggle_mark(self):
+        if self.visible is True:
+            return
+        self.mark = not self.mark
 
     def open(self):
+        if self.mark is True:
+            return
         self.visible = True
+        return self
 
     def get_text(self):
-        return self.text if self.visible is True else ' '
+        if self.mark is True:
+            return 'X'
+        if self.visible is False:
+            return ' '
+        return self.text

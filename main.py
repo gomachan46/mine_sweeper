@@ -10,6 +10,7 @@ def main():
     while True:
         x = 0
         y = 0
+        toggle_mark = False
         for text in game.field.get_texts():
             print(' '.join(text))
         print('stage:', str(Game.stage))
@@ -23,9 +24,14 @@ def main():
 
         inp = input(textwrap.dedent('''
         Available keys:
-        q w e
-        a s d
-        z x c
+          move on:
+            q w e
+            a   d
+            z x c
+          mark:
+            Q W E
+            A   D
+            Z X C
         Type `exit` to exit.
         '''))
         if inp == 'q':
@@ -48,13 +54,41 @@ def main():
         elif inp == 'c':
             x += 1
             y += 1
+        elif inp == 'Q':
+            x -= 1
+            y -= 1
+            toggle_mark = True
+        elif inp == 'A':
+            x -= 1
+            toggle_mark = True
+        elif inp == 'Z':
+            x -= 1
+            y += 1
+            toggle_mark = True
+        elif inp == 'W':
+            y -= 1
+            toggle_mark = True
+        elif inp == 'X':
+            y += 1
+            toggle_mark = True
+        elif inp == 'E':
+            x += 1
+            y -= 1
+            toggle_mark = True
+        elif inp == 'D':
+            x += 1
+            toggle_mark = True
+        elif inp == 'C':
+            x += 1
+            y += 1
+            toggle_mark = True
         elif inp == 'exit':
             break
         else:
             message = 'Invalid input'
             continue
 
-        message = game.next(x, y)
+        message = game.next(x, y, toggle_mark)
 
 
 main()

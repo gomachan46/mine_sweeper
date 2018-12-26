@@ -48,7 +48,10 @@ class Field:
         self.__cells = cells
 
     def open_cell(self, x, y):
-        self.__cells[y][x].open()
+        return self.__cells[y][x].open()
+
+    def toggle_mark(self, x, y):
+        self.__cells[y][x].toggle_mark()
         return self.__cells[y][x]
 
     def get_texts(self):

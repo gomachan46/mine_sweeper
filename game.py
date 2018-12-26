@@ -32,12 +32,22 @@ class Game:
     def field(self):
         return self.__field
 
-    def next(self, x, y):
+    def next(self, x, y, toggle_mark):
+        if toggle_mark is True:
+            self.__field.toggle_mark(self.__player.x + x, self.__player.y + y)
+            return
+
         self.__player.steps += 1
         self.__player.x += x
         self.__player.y += y
         opened = self.__field.open_cell(self.__player.x, self.__player.y)
-        if isinstance(opened, Bomb):
+        if opened is None:
+            # マーク済のセルなどが理由で開けなかった場合
+            self.__player.steps -= 1
+            self.__player.x -= x
+            self.__player.y -= y
+            return 'Can not open. Is it marked?'
+        elif isinstance(opened, Bomb):
             self.__player.pass_away()
             return 'Player is dead...'
         elif isinstance(opened, Wall):
