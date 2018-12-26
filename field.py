@@ -7,6 +7,7 @@ from wall import Wall
 
 
 class Field:
+    # NOTE: きれいにしたいところ
     def __init__(self, width, height, cells, bomb_amount):
         self.__goal = Point(((width - 1) // 2) + 1, 0)  # あとで追加される壁ブロックを見越して設定しておく
         self.__start = Point(((width - 1) // 2) + 1, height + 1)  # あとで追加される壁ブロックを見越して設定しておく
