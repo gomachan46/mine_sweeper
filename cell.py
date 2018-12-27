@@ -32,5 +32,15 @@ class Cell:
     def set_text(self, value):
         self.__text = value
 
+    @property
+    def item(self):
+        return self.__item
+
+    def drop_item(self):
+        item = self.__item
+        self.__item = None
+        return item
+
+
     def __str__(self):
         return self.text

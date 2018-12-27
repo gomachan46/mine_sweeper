@@ -63,6 +63,9 @@ class Game:
             self.__field = FieldGenerator.generate(Game.width, Game.height, Game.bomb_amount)
             self.__player.point = self.__field.start
             return 'There is a goal! Next stage!'
+        elif opened.item is not None:
+            item = opened.drop_item()
+            return f'{item.name}を手に入れた！'
 
         return None
 
