@@ -66,7 +66,7 @@ class Game:
         elif opened.item is not None:
             item = opened.drop_item()
             self.__player.pick_up(item)
-            return f'{item.name}を手に入れた！'
+            return f'Get {item.name}!'
 
         return None
 

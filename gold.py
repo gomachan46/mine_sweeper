@@ -3,7 +3,7 @@ class Gold:
 
     def __init__(self, value):
         self.__value = value
-        self.__name = f'{value}円'
+        self.__name = f'{value} gold'
 
     @property
     def value(self):
