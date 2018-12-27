@@ -8,4 +8,4 @@ class Safe(Cell):
 
     def count_up(self):
         self.__count += 1
-        self.text = str(self.__count)
+        self.__text = str(self.__count)
