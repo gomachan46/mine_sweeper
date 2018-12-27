@@ -14,4 +14,4 @@ class FieldGenerator:
         for i in indexes:
             cells[i] = Bomb()
 
-        return Field(width, height, cells, bomb_amount)
+        return Field(width, height, cells)
