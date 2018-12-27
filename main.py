@@ -16,11 +16,11 @@ def main():
             if is_player_visible is True and index == game.player.y:
                 text[game.player.x] = 'P'
             print(' '.join(text))
-        print('stage:', str(Game.stage))
-        print('steps:', str(game.player.steps))
-        print('foot:', str(game.get_foot_cell()))
-        print('gold:', str(game.player.gold.name))
-        print('parts:', f'[{",".join(map(str, game.player.parts))}]')
+        print('ステージ:', str(Game.stage))
+        print('歩数:', str(game.player.steps))
+        print('足元:', str(game.get_foot_cell()))
+        print('お金:', str(game.player.gold.name))
+        print('パーツ:', f'[{",".join(map(str, game.player.parts))}]')
 
         if message is not None:
             print(message)
@@ -30,18 +30,18 @@ def main():
             break
 
         inp = input(textwrap.dedent('''
-        Available keys:
-          move on:
+        利用可能キー:
+          移動:
             q w e
             a   d
             z x c
-          mark:
+          マーク:
             Q W E
             A   D
             Z X C
-          show/hide player:
+          プレイヤーの表示/非表示:
             s or S
-        Type `exit` to exit.
+        終了するには`exit`と入力してください
         '''))
         if inp == 'q':
             x -= 1
@@ -97,7 +97,7 @@ def main():
         elif inp == 'exit':
             break
         else:
-            message = 'Invalid input'
+            message = '正しく入力してください'
             continue
 
         message = game.next(x, y, toggle_mark)

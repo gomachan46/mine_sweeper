@@ -3,7 +3,7 @@ class Power:
 
     def __init__(self, value):
         self.__value = value
-        self.__name = f'power +{value}'
+        self.__name = f'パワー+{value}'
 
     @property
     def value(self):

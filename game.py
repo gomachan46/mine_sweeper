@@ -46,15 +46,15 @@ class Game:
             self.__player.steps -= 1
             self.__player.x -= x
             self.__player.y -= y
-            return 'Can not open. Is it marked?'
+            return 'マークされていて進めません'
         elif isinstance(opened, Bomb):
             self.__player.pass_away()
-            return 'Player is dead...'
+            return '生きていればこんな選手でした'
         elif isinstance(opened, Wall):
             self.__player.steps -= 1  # 壁に当たるのはカウントしなくてもいいかな
             self.__player.x -= x
             self.__player.y -= y
-            return 'There is a wall'
+            return '壁なので進めません'
         elif isinstance(opened, Goal):
             Game.width += 1
             Game.height += 1
@@ -62,11 +62,11 @@ class Game:
             Game.stage += 1
             self.__field = FieldGenerator.generate(Game.width, Game.height, Game.bomb_amount)
             self.__player.point = self.__field.start
-            return 'There is a goal! Next stage!'
+            return '次のステージへ！'
         elif opened.item is not None:
             item = opened.drop_item()
             self.__player.pick_up(item)
-            return f'Get {item.name}!'
+            return f'{item.name}を手に入れた！'
 
         return None
 
