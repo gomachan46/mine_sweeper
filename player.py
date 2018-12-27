@@ -1,3 +1,4 @@
+from gold import Gold
 from point import Point
 
 
@@ -11,6 +12,7 @@ class Player:
         self.__y = self.__point.y
         self.__status = self.STATUS_HEALTHY
         self.__steps = 0
+        self.__gold = Gold(0)
 
     @property
     def x(self):
@@ -27,6 +29,14 @@ class Player:
     @y.setter
     def y(self, value):
         self.__y = value
+
+    @property
+    def gold(self):
+        return self.__gold
+
+    def pick_up(self, item):
+        if isinstance(item, Gold):
+            self.__gold += item
 
     @property
     def point(self):

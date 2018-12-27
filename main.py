@@ -19,6 +19,7 @@ def main():
         print('stage:', str(Game.stage))
         print('steps:', str(game.player.steps))
         print('foot:', str(game.get_foot_cell()))
+        print('gold:', str(game.player.gold.name))
 
         if message is not None:
             print(message)

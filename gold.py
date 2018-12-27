@@ -12,3 +12,6 @@ class Gold:
     @property
     def name(self):
         return self.__name
+
+    def __add__(self, other):
+        return Gold(self.value + other.value)
