@@ -3,7 +3,7 @@ class Cell:
     TEXT_INVISIBLE = ' '
 
     def __init__(self, text, visible):
-        self.__text = text
+        self._text = text
         self.__visible = visible
         self.__mark = False
 
@@ -18,12 +18,13 @@ class Cell:
         self.__visible = True
         return self
 
-    def get_text(self):
+    @property
+    def text(self):
         if self.__mark is True:
             return self.TEXT_MARK
         if self.__visible is False:
             return self.TEXT_INVISIBLE
-        return self.__text
+        return self._text
 
     def __str__(self):
-        return self.get_text()
+        return self.text

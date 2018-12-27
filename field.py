@@ -59,7 +59,7 @@ class Field:
         return self.__cells[y][x]
 
     def get_texts(self):
-        return [[c.get_text() for c in row] for row in self.__cells]
+        return [[c.text for c in row] for row in self.__cells]
 
     @property
     def goal(self):
