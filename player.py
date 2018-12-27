@@ -13,6 +13,7 @@ class Player:
         self.__status = self.STATUS_HEALTHY
         self.__steps = 0
         self.__gold = Gold(0)
+        self.__parts = []
 
     @property
     def x(self):
@@ -34,9 +35,15 @@ class Player:
     def gold(self):
         return self.__gold
 
+    @property
+    def parts(self):
+        return self.__parts
+
     def pick_up(self, item):
         if isinstance(item, Gold):
             self.__gold += item
+            return
+        self.__parts.append(item)
 
     @property
     def point(self):

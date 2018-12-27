@@ -41,6 +41,5 @@ class Cell:
         self.__item = None
         return item
 
-
     def __str__(self):
         return self.text

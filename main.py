@@ -20,6 +20,7 @@ def main():
         print('steps:', str(game.player.steps))
         print('foot:', str(game.get_foot_cell()))
         print('gold:', str(game.player.gold.name))
+        print('parts:', f'[{",".join(map(str, game.player.parts))}]')
 
         if message is not None:
             print(message)
