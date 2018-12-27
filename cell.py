@@ -3,27 +3,27 @@ class Cell:
     TEXT_INVISIBLE = ' '
 
     def __init__(self, text, visible):
-        self.text = text
-        self.visible = visible
-        self.mark = False
+        self.__text = text
+        self.__visible = visible
+        self.__mark = False
 
     def toggle_mark(self):
-        if self.visible is True:
+        if self.__visible is True:
             return
-        self.mark = not self.mark
+        self.__mark = not self.__mark
 
     def open(self):
-        if self.mark is True:
+        if self.__mark is True:
             return
-        self.visible = True
+        self.__visible = True
         return self
 
     def get_text(self):
-        if self.mark is True:
+        if self.__mark is True:
             return self.TEXT_MARK
-        if self.visible is False:
+        if self.__visible is False:
             return self.TEXT_INVISIBLE
-        return self.text
+        return self.__text
 
     def __str__(self):
         return self.get_text()
