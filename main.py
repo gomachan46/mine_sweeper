@@ -4,7 +4,8 @@ from game import Game
 
 
 def main():
-    game = Game.start()
+    game = Game()
+    stage = game.start()
     message = None
     is_player_visible = True
 
@@ -12,21 +13,21 @@ def main():
         x = 0
         y = 0
         toggle_mark = False
-        for index, text in enumerate(game.field.get_texts()):
+        for index, text in enumerate(stage.field.get_texts()):
             if is_player_visible is True and index == game.player.y:
-                text[game.player.x] = 'P'
+                text[stage.player.x] = 'P'
             print(' '.join(text))
-        print('ステージ:', str(Game.stage))
-        print('歩数:', str(game.player.steps))
-        print('足元:', str(game.get_foot_cell()))
-        print('お金:', str(game.player.gold.name))
-        print('パーツ:', f'[{",".join(map(str, game.player.parts))}]')
+        print('ステージ:', str(game.stage))
+        print('歩数:', str(stage.player.steps))
+        print('足元:', str(stage.get_foot_cell()))
+        print('お金:', str(stage.player.gold.name))
+        print('パーツ:', f'[{",".join(map(str, stage.player.parts))}]')
 
         if message is not None:
             print(message)
             message = None
 
-        if game.player.is_dead():
+        if stage.player.is_dead():
             break
 
         inp = input(textwrap.dedent('''
@@ -100,7 +101,7 @@ def main():
             message = '正しく入力してください'
             continue
 
-        message = game.next(x, y, toggle_mark)
+        message = stage.next(x, y, toggle_mark)
 
 
 main()
