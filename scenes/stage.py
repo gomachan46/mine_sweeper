@@ -1,5 +1,3 @@
-import textwrap
-
 from cells.bomb import Bomb
 from canvas import Canvas
 from field_generator import FieldGenerator
@@ -42,19 +40,17 @@ class Stage(Scene):
             f'足元: {foot_cell}',
             f'お金: {gold}',
             f'パーツ: {parts}',
-            textwrap.dedent('''
-            利用可能キー:
-          移動:
-            q w e
-            a   d
-            z x c
-          マーク:
-            Q W E
-            A   D
-            Z X C
-          プレイヤーの表示/非表示:
-            s or S
-            ''')
+            '利用可能キー:',
+            '移動:',
+            '  q w e',
+            '  a   d',
+            '  z x c',
+            'マーク:',
+            '  Q W E',
+            '  A   D',
+            '  Z X C',
+            'プレイヤーの表示/非表示:',
+            '  s or S',
         ])
 
     def next(self, key):
