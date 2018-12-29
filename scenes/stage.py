@@ -28,13 +28,14 @@ class Stage(Scene):
             if self.__is_player_visible is True and index == self.player.y:
                 text[self.__player.x] = 'P'
             Canvas.store([' '.join(text)])
+        level = self.__level
         player_name = self.__player.name
         player_steps = self.__player.steps
         foot_cell = self.__field.get_cell(self.__player.x, self.__player.y)
         parts = ",".join([p.name for p in self.__player.parts])
         gold = self.__player.gold.name
         Canvas.store([
-            f'ステージ: {self.__level}',
+            f'ステージ: {level}',
             f'名前: {player_name}',
             f'歩数: {player_steps}',
             f'足元: {foot_cell}',
