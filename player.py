@@ -8,7 +8,6 @@ class Player:
         self.__point = point
         self.__x = self.__point.x
         self.__y = self.__point.y
-        self.__steps = 0
         self.__gold = Gold(0)
         self.__parts = []
 
@@ -55,11 +54,3 @@ class Player:
         self.__point = value
         self.__x = self.__point.x
         self.__y = self.__point.y
-
-    @property
-    def steps(self):
-        return self.__steps
-
-    @steps.setter
-    def steps(self, value):
-        self.__steps = value

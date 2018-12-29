@@ -31,14 +31,12 @@ class Stage(Scene):
             Canvas.store([' '.join(text)])
         level = self.__level
         player_name = self.__player.name
-        player_steps = self.__player.steps
         foot_cell = self.__field.get_cell(self.__player.x, self.__player.y)
         parts = ",".join([p.name for p in self.__player.parts])
         gold = self.__player.gold.name
         Canvas.store([
             f'ステージ: {level}',
             f'名前: {player_name}',
-            f'歩数: {player_steps}',
             f'足元: {foot_cell}',
             f'お金: {gold}',
             f'パーツ: [{parts}]',
@@ -61,20 +59,17 @@ class Stage(Scene):
             self.__field.toggle_mark(self.__player.x + x, self.__player.y + y)
             return self
 
-        self.__player.steps += 1
         self.__player.x += x
         self.__player.y += y
         opened = self.__field.open_cell(self.__player.x, self.__player.y)
         if opened is None:
             # マーク済のセルなどが理由で開けなかった場合
-            self.__player.steps -= 1
             self.__player.x -= x
             self.__player.y -= y
             Canvas.store(['マークされていて進めません'])
         elif isinstance(opened, Bomb):
             return GameOver(self.__player)
         elif isinstance(opened, Wall):
-            self.__player.steps -= 1
             self.__player.x -= x
             self.__player.y -= y
             Canvas.store(['壁なので進めません'])
