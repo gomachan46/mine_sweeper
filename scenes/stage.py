@@ -5,6 +5,7 @@ from cells.goal import Goal
 from scenes.scene import Scene
 from scenes.game_over import GameOver
 from cells.wall import Wall
+from scenes.shop import Shop
 
 
 class Stage(Scene):
@@ -80,6 +81,9 @@ class Stage(Scene):
         elif isinstance(opened, Goal):
             Canvas.store(['次のステージへ！'])
             next_level = self.__level + 1
+            if self.__level % 5 == 0:
+                return Shop(self.__player, next_level)
+
             field = FieldGenerator.generate_by_level(next_level)
             return Stage(field, self.__player, next_level)
         elif opened.item is not None:
