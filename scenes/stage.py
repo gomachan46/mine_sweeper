@@ -31,7 +31,7 @@ class Stage(Scene):
         player_name = self.__player.name
         player_steps = self.__player.steps
         foot_cell = self.__field.get_cell(self.__player.x, self.__player.y)
-        parts = [",".join(map(str, self.__player.parts))]
+        parts = ",".join([p.name for p in self.__player.parts])
         gold = self.__player.gold.name
         Canvas.store([
             f'ステージ: {self.__level}',
@@ -39,7 +39,7 @@ class Stage(Scene):
             f'歩数: {player_steps}',
             f'足元: {foot_cell}',
             f'お金: {gold}',
-            f'パーツ: {parts}',
+            f'パーツ: [{parts}]',
             '利用可能キー:',
             '移動:',
             '  q w e',
