@@ -17,6 +17,10 @@ class Player:
         self.__parts = []
 
     @property
+    def name(self):
+        return self.__name
+
+    @property
     def x(self):
         return self.__x
 
@@ -72,3 +76,7 @@ class Player:
 
     def is_dead(self):
         return self.__status == self.STATUS_DEAD
+
+    @property
+    def garts(self):
+        return self.__parts

@@ -16,3 +16,10 @@ class FieldGenerator:
             cells[i] = Bomb()
 
         return Field(width, height, cells)
+
+    @classmethod
+    def generate_by_level(cls, level):
+        width = 9 - 1 + level
+        height = 9 - 1 + level
+        bomb_amount = 5 - 1 + level
+        return cls.generate(width, height, bomb_amount)

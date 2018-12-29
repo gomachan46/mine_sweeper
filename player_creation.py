@@ -11,6 +11,6 @@ class PlayerCreation(Scene):
 
     def next(self, name):
         player = Player(name)
-        field = FieldGenerator.generate(9, 9, 5)
         level = 1
+        field = FieldGenerator.generate_by_level(level)
         return Stage(field, player, level)
