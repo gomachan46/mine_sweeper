@@ -14,7 +14,7 @@ def main():
         y = 0
         toggle_mark = False
         for index, text in enumerate(stage.field.get_texts()):
-            if is_player_visible is True and index == game.player.y:
+            if is_player_visible is True and index == stage.player.y:
                 text[stage.player.x] = 'P'
             print(' '.join(text))
         print('ステージ:', str(game.stage))

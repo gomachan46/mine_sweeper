@@ -14,3 +14,7 @@ class Game:
         field = FieldGenerator.generate(self.__width, self.__height, self.__bomb_amount)
         player = Player()
         return Stage(field, player)
+
+    @property
+    def stage(self):
+        return self.__stage
