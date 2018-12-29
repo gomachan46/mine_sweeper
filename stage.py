@@ -4,10 +4,11 @@ from wall import Wall
 
 
 class Stage:
-    def __init__(self, field, player):
+    def __init__(self, field, player, level):
         self.__field = field
         player.point = self.__field.start
         self.__player = player
+        self.__level = level
 
     @property
     def player(self):

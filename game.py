@@ -1,20 +1,18 @@
-from field_generator import FieldGenerator
-from player import Player
-from stage import Stage
+from canvas import Canvas
+from title import Title
 
 
 class Game:
-    def __init__(self, width=9, height=9, bomb_amount=5, stage=1):
-        self.__width = width
-        self.__height = height
-        self.__bomb_amount = bomb_amount
-        self.__stage = stage
+    def __init__(self, scene=Title()):
+        self.__scene = scene
 
-    def start(self):
-        field = FieldGenerator.generate(self.__width, self.__height, self.__bomb_amount)
-        player = Player()
-        return Stage(field, player)
+    def draw(self):
+        self.__scene.draw()
+        return Canvas.draw()
+
+    def next(self, key):
+        self.__scene = self.__scene.next(key)
 
     @property
-    def stage(self):
-        return self.__stage
+    def scene(self):
+        return self.__scene

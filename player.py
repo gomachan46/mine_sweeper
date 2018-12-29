@@ -6,7 +6,8 @@ class Player:
     STATUS_HEALTHY = 'healthy'
     STATUS_DEAD = 'dead'
 
-    def __init__(self, point=Point(0, 0)):
+    def __init__(self, name, point=Point(0, 0)):
+        self.__name = name
         self.__point = point
         self.__x = self.__point.x
         self.__y = self.__point.y
