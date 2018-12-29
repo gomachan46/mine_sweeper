@@ -3,15 +3,11 @@ from point import Point
 
 
 class Player:
-    STATUS_HEALTHY = 'healthy'
-    STATUS_DEAD = 'dead'
-
     def __init__(self, name, point=Point(0, 0)):
         self.__name = name
         self.__point = point
         self.__x = self.__point.x
         self.__y = self.__point.y
-        self.__status = self.STATUS_HEALTHY
         self.__steps = 0
         self.__gold = Gold(0)
         self.__parts = []
@@ -67,16 +63,3 @@ class Player:
     @steps.setter
     def steps(self, value):
         self.__steps = value
-
-    def pass_away(self):
-        self.__status = self.STATUS_DEAD
-
-    def is_healthy(self):
-        return self.__status == self.STATUS_HEALTHY
-
-    def is_dead(self):
-        return self.__status == self.STATUS_DEAD
-
-    @property
-    def garts(self):
-        return self.__parts

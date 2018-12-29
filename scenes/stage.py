@@ -58,6 +58,41 @@ class Stage(Scene):
         ])
 
     def next(self, key):
+        x, y, toggle_mark = self.__handle_key(key)
+        if toggle_mark is True:
+            self.__field.toggle_mark(self.__player.x + x, self.__player.y + y)
+            return self
+
+        self.__player.steps += 1
+        self.__player.x += x
+        self.__player.y += y
+        opened = self.__field.open_cell(self.__player.x, self.__player.y)
+        if opened is None:
+            # マーク済のセルなどが理由で開けなかった場合
+            self.__player.steps -= 1
+            self.__player.x -= x
+            self.__player.y -= y
+            Canvas.store(['マークされていて進めません'])
+        elif isinstance(opened, Bomb):
+            return GameOver(self.__player)
+        elif isinstance(opened, Wall):
+            self.__player.steps -= 1
+            self.__player.x -= x
+            self.__player.y -= y
+            Canvas.store(['壁なので進めません'])
+        elif isinstance(opened, Goal):
+            Canvas.store(['次のステージへ！'])
+            next_level = self.__level + 1
+            field = FieldGenerator.generate_by_level(next_level)
+            return Stage(field, self.__player, next_level)
+        elif opened.item is not None:
+            item = opened.drop_item()
+            self.__player.pick_up(item)
+            Canvas.store([f'{item.name}を手に入れた！'])
+
+        return self
+
+    def __handle_key(self, key):
         x = 0
         y = 0
         toggle_mark = False
@@ -114,36 +149,4 @@ class Stage(Scene):
         else:
             Canvas.store(['正しく入力してください'])
 
-        if toggle_mark is True:
-            self.__field.toggle_mark(self.__player.x + x, self.__player.y + y)
-            return
-
-        self.__player.steps += 1
-        self.__player.x += x
-        self.__player.y += y
-        opened = self.__field.open_cell(self.__player.x, self.__player.y)
-        if opened is None:
-            # マーク済のセルなどが理由で開けなかった場合
-            self.__player.steps -= 1
-            self.__player.x -= x
-            self.__player.y -= y
-            Canvas.store(['マークされていて進めません'])
-        elif isinstance(opened, Bomb):
-            self.__player.pass_away()
-            return GameOver(self.__player)
-        elif isinstance(opened, Wall):
-            self.__player.steps -= 1
-            self.__player.x -= x
-            self.__player.y -= y
-            Canvas.store(['壁なので進めません'])
-        elif isinstance(opened, Goal):
-            Canvas.store(['次のステージへ！'])
-            next_level = self.__level + 1
-            field = FieldGenerator.generate_by_level(next_level)
-            return Stage(field, self.__player, next_level)
-        elif opened.item is not None:
-            item = opened.drop_item()
-            self.__player.pick_up(item)
-            Canvas.store([f'{item.name}を手に入れた！'])
-
-        return self
+        return x, y, toggle_mark
