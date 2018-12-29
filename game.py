@@ -1,5 +1,5 @@
 from canvas import Canvas
-from title import Title
+from scenes.title import Title
 
 
 class Game:

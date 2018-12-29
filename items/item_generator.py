@@ -1,7 +1,7 @@
 import random
 
-from gold import Gold
-from power import Power
+from items.gold import Gold
+from items.power import Power
 
 
 class ItemGenerator:

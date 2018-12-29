@@ -1,8 +1,8 @@
 from canvas import Canvas
 from field_generator import FieldGenerator
 from player import Player
-from scene import Scene
-from stage import Stage
+from scenes.scene import Scene
+from scenes.stage import Stage
 
 
 class PlayerCreation(Scene):

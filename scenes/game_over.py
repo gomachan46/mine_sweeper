@@ -1,6 +1,6 @@
 from canvas import Canvas
-from power import Power
-from scene import Scene
+from items.power import Power
+from scenes.scene import Scene
 
 
 class GameOver(Scene):
@@ -18,5 +18,5 @@ class GameOver(Scene):
         ])
 
     def next(self, _):
-        from title import Title
+        from scenes.title import Title
         return Title()

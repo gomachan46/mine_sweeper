@@ -1,12 +1,12 @@
 import textwrap
 
-from bomb import Bomb
+from cells.bomb import Bomb
 from canvas import Canvas
 from field_generator import FieldGenerator
-from goal import Goal
-from scene import Scene
-from game_over import GameOver
-from wall import Wall
+from cells.goal import Goal
+from scenes.scene import Scene
+from scenes.game_over import GameOver
+from cells.wall import Wall
 
 
 class Stage(Scene):

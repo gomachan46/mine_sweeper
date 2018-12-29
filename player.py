@@ -1,4 +1,4 @@
-from gold import Gold
+from items.gold import Gold
 from point import Point
 
 

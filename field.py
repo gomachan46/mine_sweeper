@@ -1,9 +1,9 @@
-from bomb import Bomb
-from goal import Goal
+from cells.bomb import Bomb
+from cells.goal import Goal
 from point import Point
-from safe import Safe
-from start import Start
-from wall import Wall
+from cells.safe import Safe
+from cells.start import Start
+from cells.wall import Wall
 
 
 class Field:

@@ -1,9 +1,9 @@
 import random
 
-from bomb import Bomb
+from cells.bomb import Bomb
 from field import Field
-from item_generator import ItemGenerator
-from safe import Safe
+from items.item_generator import ItemGenerator
+from cells.safe import Safe
 
 
 class FieldGenerator:

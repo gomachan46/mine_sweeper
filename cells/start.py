@@ -1,8 +1,8 @@
-from cell import Cell
+from cells.cell import Cell
 
 
-class Wall(Cell):
-    TEXT = '.'
+class Start(Cell):
+    TEXT = 'S'
 
     def __init__(self, visible=True):
         super().__init__(self.TEXT, visible)
