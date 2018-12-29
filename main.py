@@ -11,4 +11,5 @@ def main():
             break
         game.next(key)
 
+
 main()
