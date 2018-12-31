@@ -3,13 +3,17 @@ from point import Point
 
 
 class Player:
-    def __init__(self, name, point=Point(0, 0)):
+    def __init__(self, name, point=Point(0, 0), gold=Gold(0), parts=None):
+        if parts is None:
+            parts = []
         self.__name = name
         self.__point = point
         self.__x = self.__point.x
         self.__y = self.__point.y
-        self.__gold = Gold(0)
-        self.__parts = []
+        self.__gold = gold
+        if parts is None:
+            parts = []
+        self.__parts = parts
 
     @property
     def name(self):
