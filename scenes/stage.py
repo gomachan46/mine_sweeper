@@ -1,12 +1,10 @@
 from cells.bomb import Bomb
 from canvas import Canvas
-from field_generator import FieldGenerator
 from cells.goal import Goal
 from scenes.next_stage import NextStage
 from scenes.scene import Scene
 from scenes.game_over import GameOver
 from cells.wall import Wall
-from scenes.shop import Shop
 
 
 class Stage(Scene):
