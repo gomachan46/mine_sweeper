@@ -40,7 +40,6 @@ class Stage(Scene):
         ])
 
         part_names = [p.name for p in self.__player.parts]
-
         decorated_part_names = [' '.join(part_names[i:i + 6]) for i in range(0, len(part_names), 6)]
         Canvas.store_side(decorated_part_names)
 

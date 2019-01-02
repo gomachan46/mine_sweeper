@@ -56,6 +56,7 @@ class Shop(Scene):
 
     def draw(self):
         decorated_lines = []
+        Canvas.store_main(['売り物'])
         for line in self.__parts_lines:
             decorated_lines.append(['うりきれ' if part is None else part.name for part in line])
         decorated_lines[self.__player.y][self.__player.x] = f'[{decorated_lines[self.__player.y][self.__player.x]}]'
@@ -67,6 +68,11 @@ class Shop(Scene):
             'sキーで購入',
             'Sキーで退店して次のステージへ',
         ])
+
+        part_names = [p.name for p in self.__player.parts]
+        decorated_part_names = [' '.join(part_names[i:i + 6]) for i in range(0, len(part_names), 6)]
+        Canvas.store_side(['所持パーツ'])
+        Canvas.store_side(decorated_part_names)
 
     def next(self, key):
         if key == 'q':
@@ -92,12 +98,12 @@ class Shop(Scene):
         elif key == 's':
             item = self.__parts_lines[self.__player.y][self.__player.x]
             if item is None:
-                Canvas.store_side(['もうないよ'])
+                Canvas.store_main(['もうないよ'])
                 return self
 
             self.__parts_lines[self.__player.y][self.__player.x] = None
             self.__player.pick_up(item)
-            Canvas.store_side(['どうもね'])
+            Canvas.store_main(['どうもね'])
         elif key == 'S':
             field = FieldGenerator.generate_by_level(self.__next_level)
             from scenes.stage import Stage

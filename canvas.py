@@ -34,6 +34,8 @@ class Canvas:
 
         cls.__clear()
         for index in range(message_size):
+            main_messages[index] += ' ' * (main_max_length - cls.__length(main_messages[index]))
+            side_messages[index] += ' ' * (side_max_length - cls.__length(side_messages[index]))
             if main_messages[index] == '':
                 messages.append(side_messages[index])
             elif side_messages[index] == '':
