@@ -30,14 +30,21 @@ class Stage(Scene):
         level = self.__level
         player_name = self.__player.name
         foot_cell = self.__field.get_cell(self.__player.x, self.__player.y)
-        parts = ",".join([p.name for p in self.__player.parts])
         gold = self.__player.gold.name
         Canvas.store_side([
             f'ステージ: {level}',
             f'名前: {player_name}',
             f'足元: {foot_cell}',
             f'お金: {gold}',
-            f'パーツ: [{parts}]',
+            'パーツ:',
+        ])
+
+        part_names = [p.name for p in self.__player.parts]
+
+        decorated_part_names = [' '.join(part_names[i:i + 6]) for i in range(0, len(part_names), 6)]
+        Canvas.store_side(decorated_part_names)
+
+        Canvas.store_side([
             '利用可能キー:',
             '移動:',
             '  q w e',
