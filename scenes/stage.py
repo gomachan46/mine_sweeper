@@ -2,6 +2,7 @@ from cells.bomb import Bomb
 from canvas import Canvas
 from field_generator import FieldGenerator
 from cells.goal import Goal
+from scenes.next_stage import NextStage
 from scenes.scene import Scene
 from scenes.game_over import GameOver
 from cells.wall import Wall
@@ -73,13 +74,7 @@ class Stage(Scene):
             self.__player.y -= y
             Canvas.store(['壁なので進めません'])
         elif isinstance(opened, Goal):
-            Canvas.store(['ゴール！'])
-            next_level = self.__level + 1
-            if self.__level % 5 == 0:
-                return Shop(self.__player, next_level)
-
-            field = FieldGenerator.generate_by_level(next_level)
-            return Stage(field, self.__player, next_level)
+            return NextStage(self.__player, self.__level)
         elif opened.item is not None:
             item = opened.drop_item()
             self.__player.pick_up(item)
