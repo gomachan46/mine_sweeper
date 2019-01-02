@@ -6,10 +6,6 @@ from scenes.scene import Scene
 from scenes.shop import Shop
 
 
-class Stage(object):
-    pass
-
-
 class NextStage(Scene):
     def __init__(self, player, cleared_level):
         player.point = Point(0, 0)
