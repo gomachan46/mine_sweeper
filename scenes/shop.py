@@ -1,11 +1,13 @@
 from canvas import Canvas
 from field_generator import FieldGenerator
 from items.power import Power
+from point import Point
 from scenes.scene import Scene
 
 
 class Shop(Scene):
     def __init__(self, player, next_level):
+        player.point = Point(0, 0)
         self.__player = player
         self.__next_level = next_level
         # ショップ、そんなに拡張性いらないと思うので5x6マスで固定して考える
