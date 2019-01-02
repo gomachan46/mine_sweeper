@@ -10,9 +10,9 @@ class Canvas:
 
     @classmethod
     def draw(cls):
-        def length(str):
+        def length(text):
             str_length = 0
-            for c in str:
+            for c in text:
                 # east_asian_widthを用いて全角を2文字として数える
                 if 'NaH'.count(east_asian_width(c)) > 0:
                     str_length += 1
