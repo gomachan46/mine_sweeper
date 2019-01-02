@@ -5,7 +5,7 @@ from scenes.scene import Scene
 
 class Title(Scene):
     def draw(self):
-        Canvas.store([
+        Canvas.store_main([
             'ドキドキ地雷パニック',
             'Press Any Button',
             'Note: `exit`と入力することでいつでも終了できます'

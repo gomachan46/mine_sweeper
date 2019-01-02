@@ -7,7 +7,7 @@ from scenes.stage import Stage
 
 class PlayerCreation(Scene):
     def draw(self):
-        Canvas.store(['プレーヤー名を入力してください'])
+        Canvas.store_main(['プレーヤー名を入力してください'])
 
     def next(self, name):
         player = Player(name)

@@ -12,7 +12,7 @@ class GameOver(Scene):
         for part in self.__player.parts:
             if isinstance(part, Power):
                 power += part.value
-        Canvas.store([
+        Canvas.store_main([
             '生きていればこんな選手でした',
             f'パワー: {power}',
         ])

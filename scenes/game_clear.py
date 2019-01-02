@@ -12,7 +12,7 @@ class GameClear(Scene):
         for part in self.__player.parts:
             if isinstance(part, Power):
                 power += part.value
-        Canvas.store([
+        Canvas.store_main([
             'おめでとう！',
             'こんな選手が登録されました(まだされないけど)',
             f'パワー: {power}',

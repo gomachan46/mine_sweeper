@@ -26,13 +26,13 @@ class Stage(Scene):
         for index, text in enumerate(self.__field.get_texts()):
             if self.__player.is_visible is True and index == self.player.y:
                 text[self.__player.x] = 'P'
-            Canvas.store([' '.join(text)])
+            Canvas.store_main([' '.join(text)])
         level = self.__level
         player_name = self.__player.name
         foot_cell = self.__field.get_cell(self.__player.x, self.__player.y)
         parts = ",".join([p.name for p in self.__player.parts])
         gold = self.__player.gold.name
-        Canvas.store([
+        Canvas.store_side([
             f'ステージ: {level}',
             f'名前: {player_name}',
             f'足元: {foot_cell}',
@@ -64,19 +64,19 @@ class Stage(Scene):
             # マーク済のセルなどが理由で開けなかった場合
             self.__player.x -= x
             self.__player.y -= y
-            Canvas.store(['マークされていて進めません'])
+            Canvas.store_side(['マークされていて進めません'])
         elif isinstance(opened, Bomb):
             return GameOver(self.__player)
         elif isinstance(opened, Wall):
             self.__player.x -= x
             self.__player.y -= y
-            Canvas.store(['壁なので進めません'])
+            Canvas.store_side(['壁なので進めません'])
         elif isinstance(opened, Goal):
             return NextStage(self.__player, self.__level)
         elif opened.item is not None:
             item = opened.drop_item()
             self.__player.pick_up(item)
-            Canvas.store([f'{item.name}を手に入れた！'])
+            Canvas.store_side([f'{item.name}を手に入れた！'])
 
         return self
 
@@ -135,6 +135,6 @@ class Stage(Scene):
         elif key == 's' or key == 'S':
             self.__player.is_visible = not self.__player.is_visible
         else:
-            Canvas.store(['正しく入力してください'])
+            Canvas.store_side(['正しく入力してください'])
 
         return x, y, toggle_mark

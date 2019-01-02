@@ -18,7 +18,7 @@ class NextStage(Scene):
         self.__next_level = self.__cleared_level + 1
 
     def draw(self):
-        Canvas.store([
+        Canvas.store_main([
             'ゴール！',
             '次へ進む(y/Y)',
             'もうやめる(n/N)'
@@ -35,6 +35,6 @@ class NextStage(Scene):
         elif key == 'n' or key == 'N':
             return GameClear(self.__player)
         else:
-            Canvas.store(['正しく入力してください'])
+            Canvas.store_side(['正しく入力してください'])
 
         return self
