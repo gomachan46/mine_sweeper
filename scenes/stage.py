@@ -74,7 +74,7 @@ class Stage(Scene):
             self.__player.y -= y
             Canvas.store(['壁なので進めません'])
         elif isinstance(opened, Goal):
-            Canvas.store(['次のステージへ！'])
+            Canvas.store(['ゴール！'])
             next_level = self.__level + 1
             if self.__level % 5 == 0:
                 return Shop(self.__player, next_level)
