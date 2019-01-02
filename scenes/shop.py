@@ -114,5 +114,4 @@ class Shop(Scene):
         elif self.__player.y < 0:
             self.__player.y = 0
 
-
         return self
