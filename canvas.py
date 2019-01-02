@@ -1,4 +1,6 @@
 from unicodedata import east_asian_width
+
+
 class Canvas:
     messages = []
 
