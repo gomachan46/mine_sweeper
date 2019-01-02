@@ -14,7 +14,6 @@ class Stage(Scene):
         player.point = self.__field.start
         self.__player = player
         self.__level = level
-        self.__is_player_visible = True
 
     @property
     def player(self):
@@ -26,7 +25,7 @@ class Stage(Scene):
 
     def draw(self):
         for index, text in enumerate(self.__field.get_texts()):
-            if self.__is_player_visible is True and index == self.player.y:
+            if self.__player.is_visible is True and index == self.player.y:
                 text[self.__player.x] = 'P'
             Canvas.store([' '.join(text)])
         level = self.__level
@@ -141,7 +140,7 @@ class Stage(Scene):
             y += 1
             toggle_mark = True
         elif key == 's' or key == 'S':
-            self.__is_player_visible = not self.__is_player_visible
+            self.__player.is_visible = not self.__player.is_visible
         else:
             Canvas.store(['正しく入力してください'])
 

@@ -4,8 +4,6 @@ from scenes.scene import Scene
 
 
 class NextStageGoal(Scene):
-    def __init__(self, player, next_level):
-
     def draw(self):
         Canvas.store([
             'ドキドキ地雷パニック',

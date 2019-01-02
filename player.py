@@ -3,7 +3,7 @@ from point import Point
 
 
 class Player:
-    def __init__(self, name, point=Point(0, 0), gold=Gold(0), parts=None):
+    def __init__(self, name, point=Point(0, 0), gold=Gold(0), parts=None, is_visible=True):
         if parts is None:
             parts = []
         self.__name = name
@@ -14,6 +14,7 @@ class Player:
         if parts is None:
             parts = []
         self.__parts = parts
+        self.__is_visible = is_visible
 
     @property
     def name(self):
@@ -42,6 +43,14 @@ class Player:
     @property
     def parts(self):
         return self.__parts
+
+    @property
+    def is_visible(self):
+        return self.__is_visible
+
+    @is_visible.setter
+    def is_visible(self, value):
+        self.__is_visible = value
 
     def pick_up(self, item):
         if isinstance(item, Gold):
