@@ -1,12 +1,14 @@
 import random
 
+from items.gold import Gold
+
 
 class Defence:
     ICON = '?'
 
     def __init__(self, value):
         self.__value = value
-        self.__price = value * 1000
+        self.__price = Gold(value * 1000)
         self.__name = f'防御力+{value}'
 
     @classmethod

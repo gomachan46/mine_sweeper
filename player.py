@@ -58,6 +58,10 @@ class Player:
             return
         self.__parts.append(item)
 
+    def buy(self, item):
+        self.__gold -= item.price
+        self.__parts.append(item)
+
     @property
     def point(self):
         return self.__point

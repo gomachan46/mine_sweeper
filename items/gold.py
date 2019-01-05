@@ -5,6 +5,8 @@ class Gold:
     ICON = '$'
 
     def __init__(self, value):
+        if value < 0:
+            raise ValueError('Goldは0以上の数でなければなりません')
         self.__value = value
         self.__price = value
         self.__name = f'{value}円'
@@ -24,6 +26,9 @@ class Gold:
 
     def __add__(self, other):
         return Gold(self.value + other.value)
+
+    def __sub__(self, other):
+        return Gold(self.value - other.value)
 
     def __str__(self):
         return self.name
