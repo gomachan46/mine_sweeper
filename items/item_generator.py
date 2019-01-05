@@ -7,11 +7,11 @@ from items.gold import Gold
 
 class ItemGenerator:
     @classmethod
-    def generate(cls, ratio):
+    def generate(cls, ratio, rarity):
         roulette = random.random() < ratio
         candidates = [
-            Gold(500),
-            Attack(5),
-            Defence(5),
+            Gold.generate_by_rarity(rarity),
+            Attack.generate_by_rarity(rarity),
+            Defence.generate_by_rarity(rarity),
         ]
         return random.choice(candidates) if roulette is True else None

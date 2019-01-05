@@ -1,9 +1,17 @@
+import random
+
+
 class Gold:
     ICON = '$'
 
     def __init__(self, value):
         self.__value = value
         self.__name = f'{value}円'
+
+    @classmethod
+    def generate_by_rarity(cls, rarity):
+        candidates = range(1, (rarity + 1) * 100)
+        return cls(random.choice(candidates))
 
     @property
     def value(self):
