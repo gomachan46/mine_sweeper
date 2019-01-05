@@ -6,6 +6,7 @@ class Gold:
 
     def __init__(self, value):
         self.__value = value
+        self.__price = value
         self.__name = f'{value}円'
 
     @classmethod

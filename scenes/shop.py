@@ -65,15 +65,18 @@ class Shop(Scene):
 
     def draw(self):
         decorated_lines = []
-        Canvas.store_main(['売り物'])
+        Canvas.store_main(['いらっしゃいある'])
         for line in self.__parts_lines:
             decorated_lines.append(['うりきれ' if part is None else part.name for part in line])
         decorated_lines[self.__player.y][self.__player.x] = f'[{decorated_lines[self.__player.y][self.__player.x]}]'
         for line in decorated_lines:
             Canvas.store_main([' '.join([part_name for part_name in line])])
 
+        if self.__parts_lines[self.__player.y][self.__player.x] is not None:
+            price = self.__parts_lines[self.__player.y][self.__player.x].price
+            Canvas.store_main([f'{price}円'])
+
         Canvas.store_main([
-            'いらっしゃいある',
             'sキーで購入',
             'Sキーで退店して次のステージへ',
         ])
