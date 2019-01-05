@@ -1,6 +1,7 @@
 from canvas import Canvas
 from field_generator import FieldGenerator
-from items.power import Power
+from items.attack import Attack
+from items.defence import Defence
 from point import Point
 from scenes.scene import Scene
 
@@ -13,44 +14,52 @@ class Shop(Scene):
         # ショップ、そんなに拡張性いらないと思うので5x6マスで固定して考える
         self.__parts_lines = [
             [
-                Power(5),
-                Power(10),
-                Power(20),
-                Power(30),
-                Power(40),
-                Power(50),
+                Attack(5),
+                Attack(10),
+                Attack(20),
+                Attack(30),
+                Attack(40),
+                Attack(50),
             ],
             [
-                Power(5),
-                Power(10),
-                Power(20),
-                Power(30),
-                Power(40),
-                Power(50),
+                Defence(5),
+                Defence(10),
+                Defence(20),
+                Defence(30),
+                Defence(40),
+                Defence(50),
             ],
             [
-                Power(5),
-                Power(10),
-                Power(20),
-                Power(30),
-                Power(40),
-                Power(50),
+                Attack(5),
+                Attack(10),
+                Attack(20),
+                Attack(30),
+                Attack(40),
+                Attack(50),
             ],
             [
-                Power(5),
-                Power(10),
-                Power(20),
-                Power(30),
-                Power(40),
-                Power(50),
+                Defence(5),
+                Defence(10),
+                Defence(20),
+                Defence(30),
+                Defence(40),
+                Defence(50),
             ],
             [
-                Power(5),
-                Power(10),
-                Power(20),
-                Power(30),
-                Power(40),
-                Power(50),
+                Attack(5),
+                Attack(10),
+                Attack(20),
+                Attack(30),
+                Attack(40),
+                Attack(50),
+            ],
+            [
+                Defence(5),
+                Defence(10),
+                Defence(20),
+                Defence(30),
+                Defence(40),
+                Defence(50),
             ],
         ]
 

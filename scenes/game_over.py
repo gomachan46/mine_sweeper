@@ -1,5 +1,6 @@
 from canvas import Canvas
-from items.power import Power
+from items.attack import Attack
+from items.defence import Defence
 from scenes.scene import Scene
 
 
@@ -8,13 +9,17 @@ class GameOver(Scene):
         self.__player = player
 
     def draw(self):
-        power = 0
+        attack = 0
+        defence = 0
         for part in self.__player.parts:
-            if isinstance(part, Power):
-                power += part.value
+            if isinstance(part, Attack):
+                attack += part.value
+            elif isinstance(part, Defence):
+                defence += part.value
         Canvas.store_main([
             '生きていればこんな選手でした',
-            f'パワー: {power}',
+            f'攻撃力: {attack}',
+            f'防御力: {defence}',
         ])
 
     def next(self, _):
