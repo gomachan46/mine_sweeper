@@ -18,3 +18,7 @@ class Title(Scene):
             return PlayerCreation()
         elif key == '2':
             return PlayerViewer()
+        else:
+            Canvas.store_side(['正しく入力してください'])
+
+        return self

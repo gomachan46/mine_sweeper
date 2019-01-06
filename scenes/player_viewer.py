@@ -20,6 +20,7 @@ class PlayerViewer(Scene):
                 f'防御力: {cleared_player.defence}',
                 '======'
             ])
+        Canvas.store_main(['キー入力でタイトルへ戻ります'])
 
     def next(self, _):
         from scenes.title import Title
