@@ -12,6 +12,13 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    override func loadView() {
+        sceneView = SKView()
+        sceneView.backgroundColor = .black
+        
+        self.view = sceneView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

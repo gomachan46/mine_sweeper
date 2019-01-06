@@ -12,11 +12,19 @@
 		CEE9070D21E23BDA00ADCA87 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEE9070C21E23BDA00ADCA87 /* Actions.sks */; };
 		CEE9070F21E23BDA00ADCA87 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9070E21E23BDA00ADCA87 /* GameScene.swift */; };
 		CEE9071121E23BDA00ADCA87 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9071021E23BDA00ADCA87 /* GameViewController.swift */; };
-		CEE9071421E23BDA00ADCA87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE9071221E23BDA00ADCA87 /* Main.storyboard */; };
 		CEE9071621E23BDC00ADCA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE9071521E23BDC00ADCA87 /* Assets.xcassets */; };
 		CEE9071921E23BDC00ADCA87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE9071721E23BDC00ADCA87 /* LaunchScreen.storyboard */; };
 		CEE9072421E23BDC00ADCA87 /* mine_sweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9072321E23BDC00ADCA87 /* mine_sweeperTests.swift */; };
 		CEE9072F21E23BDC00ADCA87 /* mine_sweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9072E21E23BDC00ADCA87 /* mine_sweeperUITests.swift */; };
+		CEE9073D21E245FF00ADCA87 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9073C21E245FF00ADCA87 /* Extensions.swift */; };
+		CEE9073E21E245FF00ADCA87 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9073C21E245FF00ADCA87 /* Extensions.swift */; };
+		CEE9073F21E245FF00ADCA87 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9073C21E245FF00ADCA87 /* Extensions.swift */; };
+		CEE9074921E248F200ADCA87 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074321E248F200ADCA87 /* RxSwift.framework */; };
+		CEE9074A21E248F200ADCA87 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074421E248F200ADCA87 /* RxCocoa.framework */; };
+		CEE9074B21E248F200ADCA87 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074521E248F200ADCA87 /* SnapKit.framework */; };
+		CEE9074C21E248F200ADCA87 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074621E248F200ADCA87 /* RxBlocking.framework */; };
+		CEE9074D21E248F200ADCA87 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074721E248F200ADCA87 /* RxAtomic.framework */; };
+		CEE9074E21E248F200ADCA87 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074821E248F200ADCA87 /* RxTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +51,6 @@
 		CEE9070C21E23BDA00ADCA87 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		CEE9070E21E23BDA00ADCA87 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CEE9071021E23BDA00ADCA87 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		CEE9071321E23BDA00ADCA87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEE9071521E23BDC00ADCA87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE9071821E23BDC00ADCA87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEE9071A21E23BDC00ADCA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +60,14 @@
 		CEE9072A21E23BDC00ADCA87 /* mine_sweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mine_sweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE9072E21E23BDC00ADCA87 /* mine_sweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mine_sweeperUITests.swift; sourceTree = "<group>"; };
 		CEE9073021E23BDC00ADCA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEE9073C21E245FF00ADCA87 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CEE9074121E248CE00ADCA87 /* iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOS; path = Carthage/Build/iOS; sourceTree = "<group>"; };
+		CEE9074321E248F200ADCA87 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		CEE9074421E248F200ADCA87 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		CEE9074521E248F200ADCA87 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		CEE9074621E248F200ADCA87 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		CEE9074721E248F200ADCA87 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		CEE9074821E248F200ADCA87 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +75,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE9074921E248F200ADCA87 /* RxSwift.framework in Frameworks */,
+				CEE9074A21E248F200ADCA87 /* RxCocoa.framework in Frameworks */,
+				CEE9074B21E248F200ADCA87 /* SnapKit.framework in Frameworks */,
+				CEE9074C21E248F200ADCA87 /* RxBlocking.framework in Frameworks */,
+				CEE9074D21E248F200ADCA87 /* RxAtomic.framework in Frameworks */,
+				CEE9074E21E248F200ADCA87 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +108,7 @@
 				CEE9072221E23BDC00ADCA87 /* mine_sweeperTests */,
 				CEE9072D21E23BDC00ADCA87 /* mine_sweeperUITests */,
 				CEE9070621E23BDA00ADCA87 /* Products */,
+				CEE9074021E248CD00ADCA87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,10 +130,10 @@
 				CEE9070C21E23BDA00ADCA87 /* Actions.sks */,
 				CEE9070E21E23BDA00ADCA87 /* GameScene.swift */,
 				CEE9071021E23BDA00ADCA87 /* GameViewController.swift */,
-				CEE9071221E23BDA00ADCA87 /* Main.storyboard */,
 				CEE9071521E23BDC00ADCA87 /* Assets.xcassets */,
 				CEE9071721E23BDC00ADCA87 /* LaunchScreen.storyboard */,
 				CEE9071A21E23BDC00ADCA87 /* Info.plist */,
+				CEE9073C21E245FF00ADCA87 /* Extensions.swift */,
 			);
 			path = mine_sweeper;
 			sourceTree = "<group>";
@@ -134,6 +156,20 @@
 			path = mine_sweeperUITests;
 			sourceTree = "<group>";
 		};
+		CEE9074021E248CD00ADCA87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEE9074721E248F200ADCA87 /* RxAtomic.framework */,
+				CEE9074621E248F200ADCA87 /* RxBlocking.framework */,
+				CEE9074421E248F200ADCA87 /* RxCocoa.framework */,
+				CEE9074321E248F200ADCA87 /* RxSwift.framework */,
+				CEE9074821E248F200ADCA87 /* RxTest.framework */,
+				CEE9074521E248F200ADCA87 /* SnapKit.framework */,
+				CEE9074121E248CE00ADCA87 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +180,7 @@
 				CEE9070121E23BDA00ADCA87 /* Sources */,
 				CEE9070221E23BDA00ADCA87 /* Frameworks */,
 				CEE9070321E23BDA00ADCA87 /* Resources */,
+				CEE9074F21E2491B00ADCA87 /* Carthage copy-frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE9071421E23BDA00ADCA87 /* Main.storyboard in Resources */,
 				CEE9070B21E23BDA00ADCA87 /* GameScene.sks in Resources */,
 				CEE9071621E23BDC00ADCA87 /* Assets.xcassets in Resources */,
 				CEE9071921E23BDC00ADCA87 /* LaunchScreen.storyboard in Resources */,
@@ -262,6 +298,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CEE9074F21E2491B00ADCA87 /* Carthage copy-frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+			);
+			name = "Carthage copy-frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxTest.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEE9070121E23BDA00ADCA87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -270,6 +337,7 @@
 				CEE9070F21E23BDA00ADCA87 /* GameScene.swift in Sources */,
 				CEE9071121E23BDA00ADCA87 /* GameViewController.swift in Sources */,
 				CEE9070921E23BDA00ADCA87 /* AppDelegate.swift in Sources */,
+				CEE9073D21E245FF00ADCA87 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE9072421E23BDC00ADCA87 /* mine_sweeperTests.swift in Sources */,
+				CEE9073E21E245FF00ADCA87 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE9072F21E23BDC00ADCA87 /* mine_sweeperUITests.swift in Sources */,
+				CEE9073F21E245FF00ADCA87 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,14 +375,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CEE9071221E23BDA00ADCA87 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEE9071321E23BDA00ADCA87 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEE9071721E23BDC00ADCA87 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -446,6 +508,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RB9968Q7G7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = mine_sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +530,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RB9968Q7G7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = mine_sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
