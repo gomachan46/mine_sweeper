@@ -10,7 +10,8 @@ class Title(Scene):
             'ドキドキ地雷パニック',
             '1キー: ゲームスタート',
             '2キー: 選手名鑑',
-            'Note: `exit`と入力することでいつでも終了できます'
+            'Note: `exit`と入力することでいつでも終了できます',
+            'Note: ベータ版につき正常に動作しない場合は.mine_sweeper/mine_sweeper.dbを削除してください'
         ])
 
     def next(self, key):

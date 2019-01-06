@@ -35,6 +35,6 @@ class Game:
     @classmethod
     def load(cls):
         db = shelve.open(cls.DATA_FILE)
-        if 'data' in db.keys() :
+        if 'data' in db.keys():
             cls.data = db['data']
         db.close()
