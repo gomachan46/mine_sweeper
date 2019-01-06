@@ -7,7 +7,7 @@ from scenes.title import Title
 class Game:
     DATA_FILE = '.mine_sweeper/mine_sweeper.db'
     data = {
-        'players': [],
+        'cleared_players': [],
     }
 
     def __init__(self, scene=Title()):
@@ -35,7 +35,6 @@ class Game:
     @classmethod
     def load(cls):
         db = shelve.open(cls.DATA_FILE)
-        cls.data = db['data']
-        for player in cls.data['players']:
-            print(player.name)
+        if 'data' in db.keys() :
+            cls.data = db['data']
         db.close()
