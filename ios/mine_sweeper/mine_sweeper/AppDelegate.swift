@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  mine_sweeper
-//
-//  Created by USER on 2019/01/06.
-//  Copyright © 2019 gomachan46. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

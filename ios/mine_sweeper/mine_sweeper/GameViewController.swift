@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  mine_sweeper
-//
-//  Created by USER on 2019/01/06.
-//  Copyright © 2019 gomachan46. All rights reserved.
-//
-
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -13,9 +5,8 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     override func loadView() {
-        sceneView = SKView()
+        let sceneView = SKView()
         sceneView.backgroundColor = .black
-        
         self.view = sceneView
     }
     

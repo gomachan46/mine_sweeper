@@ -22,9 +22,6 @@
 		CEE9074921E248F200ADCA87 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074321E248F200ADCA87 /* RxSwift.framework */; };
 		CEE9074A21E248F200ADCA87 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074421E248F200ADCA87 /* RxCocoa.framework */; };
 		CEE9074B21E248F200ADCA87 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074521E248F200ADCA87 /* SnapKit.framework */; };
-		CEE9074C21E248F200ADCA87 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074621E248F200ADCA87 /* RxBlocking.framework */; };
-		CEE9074D21E248F200ADCA87 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074721E248F200ADCA87 /* RxAtomic.framework */; };
-		CEE9074E21E248F200ADCA87 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE9074821E248F200ADCA87 /* RxTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +75,6 @@
 				CEE9074921E248F200ADCA87 /* RxSwift.framework in Frameworks */,
 				CEE9074A21E248F200ADCA87 /* RxCocoa.framework in Frameworks */,
 				CEE9074B21E248F200ADCA87 /* SnapKit.framework in Frameworks */,
-				CEE9074C21E248F200ADCA87 /* RxBlocking.framework in Frameworks */,
-				CEE9074D21E248F200ADCA87 /* RxAtomic.framework in Frameworks */,
-				CEE9074E21E248F200ADCA87 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,20 +301,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			name = "Carthage copy-frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxTest.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
