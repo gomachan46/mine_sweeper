@@ -7,6 +7,8 @@ from scenes.scene import Scene
 class GameClear(Scene):
     def __init__(self, player):
         self.__player = player
+        from game import Game
+        Game.data['players'].append(self.__player)
 
     def draw(self):
         attack = 0
