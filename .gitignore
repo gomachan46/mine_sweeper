@@ -109,3 +109,4 @@ venv.bak/
 
 .mine_sweeper/
 !.keep
+.DS_Store
