@@ -5,16 +5,25 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
 
     override func didMove(to view: SKView) {
-        self.label = SKLabelNode(text: "じらぱに").apply { this in
-            this.fontSize = 40
-            this.fontColor = .white
-            this.position = CGPoint(x: size.width / 2, y: size.height / 2)
-            this.alpha = 0.0
-            this.run(SKAction.fadeIn(withDuration: 2.0))
-        }
         if let label = self.label {
             self.addChild(label)
         }
+
+        let cellSize = CGSize(width: 40, height: 40)
+        let cell = SKShapeNode(rectOf: cellSize).apply { c in
+            c.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+            c.fillColor = .white
+
+            let label = SKLabelNode(text: "1").apply { l in
+                l.fontName = "Menlo"
+                l.fontSize = 40
+                l.fontColor = .black
+                l.verticalAlignmentMode = .center
+                l.horizontalAlignmentMode = .center
+            }
+            c.addChild(label)
+        }
+        self.addChild(cell)
     }
 
     func touchDown(atPoint pos : CGPoint) {
@@ -27,12 +36,6 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            let fadeIn = SKAction.fadeIn(withDuration: 1.0)
-            let fadeOut = SKAction.fadeOut(withDuration: 1.0)
-            label.run(SKAction.sequence([fadeOut, fadeIn]))
-        }
-        
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
