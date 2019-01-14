@@ -2,17 +2,21 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
         
         // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
+        self.label = SKLabelNode(text: "じらぱに").apply { this in
+            this.fontSize = 40
+            this.fontColor = .white
+            this.position = CGPoint(x: size.width / 2, y: size.height / 2)
+            this.alpha = 0.0
+            this.run(SKAction.fadeIn(withDuration: 2.0))
+        }
         if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+            addChild(label)
         }
         
         // Create shape node to use during mouse interaction
@@ -56,7 +60,9 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+            let fadeIn = SKAction.fadeIn(withDuration: 1.0)
+            let fadeOut = SKAction.fadeOut(withDuration: 1.0)
+            label.run(SKAction.sequence([fadeOut, fadeIn]))
         }
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
