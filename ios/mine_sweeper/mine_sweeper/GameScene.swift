@@ -5,7 +5,7 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
 
     override func didMove(to view: SKView) {
-        let cellSize = UIScreen.main.bounds.size.width / 10
+        let cellSize = self.frame.width / 10
 
         var cells = [SKShapeNode]()
         for y in 0...9 {
