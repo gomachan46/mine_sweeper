@@ -5,25 +5,28 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
 
     override func didMove(to view: SKView) {
-        if let label = self.label {
-            self.addChild(label)
-        }
+        let cellSize = UIScreen.main.bounds.size.width / 10
 
-        let cellSize = CGSize(width: 40, height: 40)
-        let cell = SKShapeNode(rectOf: cellSize).apply { c in
-            c.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-            c.fillColor = .white
+        var cells = [SKShapeNode]()
+        for y in 0...9 {
+            for x in 0...9 {
+                let cell = SKShapeNode(rectOf: CGSize(width: cellSize, height: cellSize)).apply { c in
+                    c.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
+                    c.fillColor = .white
 
-            let label = SKLabelNode(text: "1").apply { l in
-                l.fontName = "Menlo"
-                l.fontSize = 40
-                l.fontColor = .black
-                l.verticalAlignmentMode = .center
-                l.horizontalAlignmentMode = .center
+                    let label = SKLabelNode(text: String(1)).apply { l in
+                        l.fontName = "Menlo"
+                        l.fontSize = CGFloat(cellSize)
+                        l.fontColor = .black
+                        l.verticalAlignmentMode = .center
+                        l.horizontalAlignmentMode = .center
+                    }
+                    c.addChild(label)
+                }
+                cells.append(cell)
             }
-            c.addChild(label)
         }
-        self.addChild(cell)
+        cells.forEach { self.addChild($0) }
     }
 
     func touchDown(atPoint pos : CGPoint) {
