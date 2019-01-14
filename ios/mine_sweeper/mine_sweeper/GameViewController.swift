@@ -3,19 +3,20 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    var skView: SKView!
+    var skView = SKView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        skView = SKView(frame: self.view.frame)
-        skView.ignoresSiblingOrder = true
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        self.skView.frame = self.view.frame
+        self.skView.ignoresSiblingOrder = true
+        self.skView.showsFPS = true
+        self.skView.showsNodeCount = true
         
         let scene = GameScene(size: skView.frame.size)
         scene.scaleMode = .aspectFill
-        skView.presentScene(scene)
+
+        self.skView.presentScene(scene)
         self.view.addSubview(skView)
     }
 

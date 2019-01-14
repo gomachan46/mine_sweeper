@@ -3,8 +3,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
+
     override func didMove(to view: SKView) {
         self.label = SKLabelNode(text: "じらぱに").apply { this in
             this.fontSize = 40
