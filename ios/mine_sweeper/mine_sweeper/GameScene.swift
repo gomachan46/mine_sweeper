@@ -6,8 +6,6 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        
-        // Get label node from scene and store it for use later
         self.label = SKLabelNode(text: "じらぱに").apply { this in
             this.fontSize = 40
             this.fontColor = .white
@@ -16,7 +14,7 @@ class GameScene: SKScene {
             this.run(SKAction.fadeIn(withDuration: 2.0))
         }
         if let label = self.label {
-            addChild(label)
+            self.addChild(label)
         }
         
         // Create shape node to use during mouse interaction
