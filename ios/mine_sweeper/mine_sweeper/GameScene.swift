@@ -5,14 +5,21 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
 
     override func didMove(to view: SKView) {
-        let cellSize = self.frame.width / 10
+        let cellSize = self.frame.width / 11
 
         var cells = [SKShapeNode]()
-        for y in 0...9 {
-            for x in 0...9 {
-                let cell = SKShapeNode(rectOf: CGSize(width: cellSize, height: cellSize)).apply { c in
-                    c.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
-                    c.fillColor = .white
+        for y in 0...10 {
+            for x in 0...10 {
+                let cell = SKShapeNode(rectOf: CGSize(width: cellSize, height: cellSize))
+                if (y == 0 && x == 5) || (y == 10 && x == 5) {
+                    cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
+                    cell.fillColor = .brown
+                } else if y == 0 || y == 10 || x == 0 || x == 10 {
+                    cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
+                    cell.fillColor = .darkGray
+                } else {
+                    cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
+                    cell.fillColor = .white
 
                     let label = SKLabelNode(text: String(1)).apply { l in
                         l.fontName = "Menlo"
@@ -21,7 +28,7 @@ class GameScene: SKScene {
                         l.verticalAlignmentMode = .center
                         l.horizontalAlignmentMode = .center
                     }
-                    c.addChild(label)
+                    cell.addChild(label)
                 }
                 cells.append(cell)
             }
