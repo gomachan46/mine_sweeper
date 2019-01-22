@@ -11,14 +11,12 @@ class GameScene: SKScene {
         for y in 0...10 {
             for x in 0...10 {
                 let cell = SKShapeNode(rectOf: CGSize(width: cellSize, height: cellSize))
+                cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
                 if (y == 0 && x == 5) || (y == 10 && x == 5) {
-                    cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
                     cell.fillColor = .brown
                 } else if y == 0 || y == 10 || x == 0 || x == 10 {
-                    cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
                     cell.fillColor = .darkGray
                 } else {
-                    cell.position = CGPoint(x: cellSize * CGFloat(x) + cellSize / 2, y: cellSize * CGFloat(y) + cellSize / 2 + self.frame.height / 4)
                     cell.fillColor = .white
 
                     let label = SKLabelNode(text: String(1)).apply { l in
